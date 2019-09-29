@@ -1,5 +1,10 @@
 # vue-grid-layout
 
+利用 [vue-grid-layout](https://github.com/jbaysolutions/vue-grid-layout) 写的**多容器拖拽** 
+
+适用场景为：自定义大屏————需要将预定义的模块自由拖拽、缩放后组合成一个完整的展示页面。
+
+demo 地址：[预览](http://heifun.cn/multi-container-draggable/dist/index.html)
 ## Project setup
 ```
 npm install
