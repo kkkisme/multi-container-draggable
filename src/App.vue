@@ -85,6 +85,8 @@
       let copy = null
       let movingGridDeltaY = 0 // 左侧拖拽的原始grid距顶部距离
       let _this = this
+      let x = 0
+      let y = 0
       let position = { x: 0, y: 0 }
       interact('.template-item').draggable({
         inertia: true,
@@ -98,8 +100,11 @@
             position.x += event.dx
             position.y += event.dy
             copy.style.transform = `translate(${position.x}px, ${position.y}px)`
+            copy.style.outline = '1px dashed darkmagenta'
+            let {x: _x, y: _y} = (_this.calcXY(position.y + movingGridDeltaY - mainDY, position.x - mainDX))
+            x = _x
+            y = _y
             if(entered) {
-              let {x, y} = (_this.calcXY(position.y + movingGridDeltaY - mainDY, position.x - mainDX))
               let currentDragGridData = _this.layout[_this.layout.length - 1]
               currentDragGridData.x = x
               currentDragGridData.y = y
@@ -111,6 +116,8 @@
             copy = null
             movingGridDeltaY = 0
             position = { x: 0, y: 0 }
+            x = 0
+            y = 0
           }
         }
       })
@@ -120,17 +127,18 @@
           event.target.classList.add('drop-active')
         },
         ondragenter (event) {
+          entered = true
           let color = getComputedStyle(event.relatedTarget).backgroundColor
           _this.layout.push({
-            x: 0,
-            y: 0,
+            x: x,
+            y: y,
             w: 2,
             h: 2,
             i: id++,
             isTemplate: true,
             color
           })
-          entered = true
+
         },
         ondragleave () {
           entered = false
