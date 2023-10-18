@@ -4,7 +4,7 @@
 
 适用场景为：自定义大屏————需要将预定义的模块自由拖拽、缩放后组合成一个完整的展示页面。
 
-demo 地址：[预览](http://heifun.cn/multi-container-draggable/dist/index.html)
+demo 地址：[预览](https://hungry-puma-82.deno.dev/)
 ## Project setup
 ```
 npm install
