@@ -26,7 +26,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: lts/*
+          node-version: 14.17.0
 
       - name: Build step
         run: "npm install && npm run build" # 📝 Update the build command(s) if necessary
@@ -35,5 +35,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "hungry-puma-82"
-          entrypoint: "index.js" # 📝 Update the entrypoint if necessary
-          root: "." # 📝 Update the root if necessary
+          entrypoint: "https://deno.land/std@0.188.0/http/file_server.ts" # 📝 Update the entrypoint
+          root: "dist"
